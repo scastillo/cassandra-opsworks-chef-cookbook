@@ -29,15 +29,14 @@ apt_repository "datastax" do
   action :add
 end
 
-# Install Java 7 First
-package "openjdk-7-jre" do
-  action :install
-end
+# Insall Java from cookbook
+#   by default use oracle 8
 
-# Force Java 7 as the default
-execute "update-java-alternatives" do
-  command "update-java-alternatives --set java-1.7.0-openjdk-amd64"
-end
+default["java"]["install_flavor"] ||= "oracle"
+default["java"]["jdk_version"] ||= '8'
+default["java"]["oracle"]["accept_oracle_download_terms"] ||= true
+
+include_recipe 'java'
 
 # DataStax Server Community Edition package will not install w/o this
 # one installed. MK.
