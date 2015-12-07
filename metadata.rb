@@ -6,4 +6,5 @@ description      "Installs/Configures OpsCode Apache Cassandra on AWS OpsWorks"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "2.0.0"
 
-depends "apt"
+depends 'apt'
+depends 'java', '~> 1.36.0'
