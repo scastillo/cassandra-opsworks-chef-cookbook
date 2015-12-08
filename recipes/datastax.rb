@@ -30,13 +30,7 @@ apt_repository "datastax" do
 end
 
 # Insall Java from cookbook
-#   by default use oracle 8
-if not default["java"]
-  default["java"] = {}
-  default["java"]["install_flavor"] = "oracle"
-  default["java"]["jdk_version"] = '8'
-  default["java"]["oracle"] = {"accept_oracle_download_terms" => true}
-end
+#   (by default use oracle 8. See attributes)
 
 include_recipe 'java'
 

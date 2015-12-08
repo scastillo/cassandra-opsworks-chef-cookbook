@@ -38,6 +38,13 @@ default[:cassandra] = {
   }
 }
 
+# Java version specifics
+default[:java] = {
+  :install_flavor => 'oracle',
+  :jdk_version => '8',
+  :oracle => {:accept_oracle_download_terms => true}
+}
+
 # Set the OpsWorks specifics here
 
 puts "Configured Snitch is #{node["cassandra"]["snitch"]}"
