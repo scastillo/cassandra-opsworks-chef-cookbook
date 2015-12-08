@@ -32,6 +32,9 @@ end
 # Insall Java from cookbook
 #   (by default use oracle 8. See attributes)
 
+node.default['java']['jdk']['8']['x86_64']['url'] = 'https://s3.amazonaws.com/setup-dependencies-repo/jre-8u66-linux-x64.tar.gz'
+node.default['java']['jdk']['8']['x86_64']['checksum'] = '88f31f3d642c3287134297b8c10e61bf'
+
 include_recipe 'java'
 
 # DataStax Server Community Edition package will not install w/o this
