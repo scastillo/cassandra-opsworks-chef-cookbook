@@ -45,6 +45,7 @@ default[:java] = {
   :arch => 'x86_64',
   :jdk_version => '8',
   :oracle => {
+    :jce => {:enabled => false}
     :accept_oracle_download_terms => true
   },
   'jdk' => {
