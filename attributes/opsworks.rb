@@ -31,6 +31,7 @@ default[:cassandra] = {
   :snitch           => 'EC2Snitch',
   :authenticator    => 'org.apache.cassandra.auth.PasswordAuthenticator',
   :authorizer       => 'org.apache.cassandra.auth.CassandraAuthorizer',
+  :install_opscenter => true,
   :native_transport => {
     :start       => true,
     :port        => 9042,
@@ -41,6 +42,7 @@ default[:cassandra] = {
 # Java version specifics
 default[:java] = {
   :install_flavor => 'oracle',
+  :arch => 'x86_64',
   :jdk_version => '8',
   :oracle => {
     :accept_oracle_download_terms => true
