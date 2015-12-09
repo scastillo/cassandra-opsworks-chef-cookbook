@@ -40,7 +40,18 @@ package "python-cql" do
   action :install
 end
 
-package ["libjna-java=3.2.7-4", "cassandra=2.0.17", "dsc20=2.0.17-1"] do
+package "libjna-java" do
+  version "3.2.7-4"
+  action :install
+end
+
+package "cassandra" do
+  version "2.0.17"
+  action :install
+end
+
+package "dsc20" do
+  version "2.0.17-1"
   action :install
 end
 
