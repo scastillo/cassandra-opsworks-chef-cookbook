@@ -62,6 +62,10 @@ default[:cassandra] = {
 
 puts "Configured Snitch is #{node["cassandra"]["snitch"]}"
 
+puts "PRIVATE IP: #{node["opsworks"]["instance"]["private_ip"]}"
+puts "PUBLIC IP: #{node["opsworks"]["instance"]["ip"]}"
+puts "INSTANCES: #{node["opsworks"]["layers"]["cassandra"]["instances"]}"
+
 seed_array = []
 
 # Add this node as the first seed
@@ -81,5 +85,7 @@ node["opsworks"]["layers"]["cassandra"]["instances"].each do |instance_name, val
     seed_array << values["private_ip"]
   end
 end
-  
+
+puts "SEED_ARRAY: #{seed_array}"
+
 set[:cassandra][:seeds] = seed_array
